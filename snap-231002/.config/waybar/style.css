@@ -1,0 +1,62 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: DroidSansMono, octicons;
+    font-size: 15px;
+    min-height: 0;
+    color: white;
+}
+
+#waybar {
+    background: rgba(43, 48, 59, 0.5);
+    padding-top: 3px;
+}
+
+#workspaces button {
+    padding-left: 16px;
+    padding-right: 16px;
+    background: transparent;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+    font-weight: bold;
+    border-bottom: 3px solid white;
+}
+
+#workspaces button.active {
+    font-weight: bold;
+    border-bottom: 3px solid white;
+}
+
+#workspaces button:hover {
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
+    border-bottom: 3px solid #dfdfdf;
+}
+
+#network {
+
+}
+
+#cpu {
+
+}
+
+#memory {
+
+}
+
+#temperature {
+
+}
+
+#battery {
+
+}
+
+#clock {
+
+}
