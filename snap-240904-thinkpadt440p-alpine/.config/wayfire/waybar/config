@@ -1,0 +1,113 @@
+{
+    "name": "main",
+    "height": 30,
+    "modules-right": [
+    	"network#wlan",
+        "network#eth",
+        "cpu",
+	"memory",
+	"temperature",
+	"battery",
+	"tray",
+	"clock"
+    ],
+    "network#wlan": {
+    	"interface": "wlan0",
+        "interval": 1,
+        "format-wifi": " {bandwidthUpBits} {bandwidthDownBits}",
+	"format-disconnected": "",
+	"format": "",
+	"tooltip": true,
+	"tooltip-format": "IP:{ipaddr} M:{netmask} S:{signalStrength} SSID:{essid} {frequency}Ghz",
+        "align": 0,
+        "max-length": 32,
+        "min-length": 32
+    },
+    "network#eth": {
+    	"interface": "eth0",
+        "interval": 1,
+        "format-ethernet": " {bandwidthUpBits} {bandwidthDownBits}",
+        "format-disconnected": "",
+        "format": "",
+	"tooltip": true,
+	"tooltip-format": "IP:{ipaddr} M:{netmask}",
+	"align": 0,
+        "max-length": 32,
+        "min-length": 32
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "  {icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7} {usage}% {max_frequency}GHz",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+        "align": 0,
+        "max-length": 32,
+        "min-length": 32
+    },
+    "memory": {
+        "interval": 1,
+        "format": " {used:0.2f}GiB {}%",
+        "align": 0,
+        "max-length": 18,
+        "min-length": 18
+    }, 
+    "temperature": {
+    	"interval": 1,
+	"critical-threshold": 80,
+	"format": "{icon} {temperatureC}°C",
+	"format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+	"tooltip": true,
+	"tooltip-format": "{temperatureC}°C",
+        "align": 0,
+        "max-length": 7,
+        "min-length": 7 
+    },
+    "battery": {
+        "interval": 5,
+        "states": {
+            "warning": 25,
+            "critical": 15
+        },
+        "format": " {capacity}%",
+        "format-discharging": "{icon} {capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip": true,
+	"tooltip-format": "{timeTo}",
+        "align": 0,
+        "max-length": 7,
+        "min-length": 7
+    },
+    "tray": {
+    	"icon-size": 22,
+    },
+    "clock": {
+        "interval": 10,
+	"format": "{:%a %d %b %H:%M}",
+	"tooltip": true,
+	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+	"calendar": {
+	    "weeks-pos":	"right",
+	    "format": {
+	    	"months":	"<span color='#ffead3'><b>{}</b></span>",
+		"days":		"<span color='#ecc6d9'><b>{}</b></span>",
+		"weeks":	"<span color='#99ffdd'><b>W{}</b></span>",
+		"weekdays":	"<span color='#ffcc66'><b>{}</b></span>",
+		"today":	"<span color='#ff6699'><b><u>{}</u></b></span>"
+	    }
+	},
+	"align": 1,
+        "max-length": 18,
+	"min-length": 18
+    }
+}
