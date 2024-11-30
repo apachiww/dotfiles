@@ -1,0 +1,33 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: DroidSans;
+    font-size: 15px;
+    color: white;
+}
+
+#waybar {
+    background: rgba(43, 48, 59, 1);
+}
+
+#workspaces button {
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.active {
+    font-weight: bold;
+    border-bottom: 3px solid white;
+}
+
+#workspaces button.focused {
+    font-weight: bold;
+    border-bottom: 3px solid white;
+}
+
+#workspaces button:hover {
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
+    border-bottom: 3px solid #bfbfbf;
+}
