@@ -1,0 +1,13 @@
+program_options:
+  tray: false
+  automount: true
+  notify: true
+  file_manager: nemo
+  terminal: foot
+notifications:
+  timeout: 3
+  device_mounted: 5
+  device_unmounted: 5
+  device_added: 1
+  device_removed: 1
+  job_failed: 5
