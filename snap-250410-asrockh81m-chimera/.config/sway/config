@@ -1,0 +1,152 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key as master key
+set $mod Mod4
+# Terminal emulator
+set $term foot
+# Application launcher
+set $menu fuzzel
+# Filemanager
+set $fm dolphin
+
+### Exec once
+exec waybar
+exec mako
+#exec wl-paste --type text --watch cliphist store
+#exec wl-paste --type image --watch cliphist store
+exec fcitx5 -d --replace
+#exec udiskie
+
+### Output configuration
+#
+# Wallpaper
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# Monitor settings. Get outputs by running: swaymsg -t get_outputs when sway is launched
+output * resolution 1920x1080 position 0,0
+
+### Seat settings
+#
+# Cursor
+seat seat0 xcursor_theme Adwaita 18
+
+### Font settings
+#
+# Droid Sans mono
+font pango:DejavuSans 12
+
+### Window settings
+#
+# Style
+default_border pixel 2
+# Per-App window settings
+for_window [app_id="imv"] floating enable
+
+### Key bindings
+#
+# Fn keys:
+#
+    # Sound
+    #bindsym XF86AudioRaiseVolume exec amixer set Master 2%+
+    #bindsym XF86AudioLowerVolume exec amixer set Master 2%-
+    #bindsym XF86AudioMute exec amixer set Master toggle
+    #bindsym XF86AudioMicMute exec amixer set Mic toggle
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym Ctrl+Alt+t exec $term
+    # Start filemanager
+    bindsym $mod+e exec $fm
+    # Kill focused window
+    bindsym $mod+c kill
+    # Unmount with udiskie
+    #bindsym $mod+u exec udiskie-umount -da
+    # Start launcher
+    bindsym $mod+r exec $menu
+    # Drag floating/non-floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    floating_modifier $mod normal
+    # Reload the configuration file
+    bindsym $mod+Alt+r reload
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+#
+# Moving around:
+#
+    # Move focus around
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+    # Move the focused window
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+#
+# Layout stuff:
+#
+    # Split the current object of focus, for horizontal and vertical splits
+    bindsym $mod+h splith
+    bindsym $mod+i splitv
+    # Switch the current container between different layout styles
+    #bindsym $mod+s layout stacking
+    bindsym $mod+t layout tabbed
+    bindsym $mod+l layout toggle split
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+v floating toggle
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+b focus mode_toggle
+    # Move focus to the parent container
+    bindsym $mod+p focus parent
+#
+# Resizing containers:
+#
+#mode "resize" {
+    # Grow or shrink container size with arrow keys
+    bindsym $mod+Ctrl+Left resize shrink width 50px
+    bindsym $mod+Ctrl+Down resize shrink height 50px
+    bindsym $mod+Ctrl+Up resize grow height 50px
+    bindsym $mod+Ctrl+Right resize grow width 50px
+
+    # Return to default mode
+    bindsym $mod+Return mode "default"
+#}
+#bindsym $mod+w mode "resize"
+
+#
+# Running apps
+#
+    # Screenshot
+    bindsym Print exec ~/.config/sway/screenshot.sh
+
+#include /etc/sway/config/*
